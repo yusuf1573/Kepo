@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kirim Lokasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1da851;
+    }
+  </style>
+</head>
+<body>
+  <h2>Kirim Lokasi Terkini ke WhatsApp</h2>
+  <p>Klik tombol di bawah untuk mengirim lokasi Anda.</p>
+  <button onclick="kirimLokasi()">Kirim Lokasi Sekarang</button>
+
+  <script>
+    function kirimLokasi() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+
+          // GANTI nomor di bawah ini dengan nomor WhatsApp kamu
+          const nomorTujuan = "6281234567890";
+
+          const pesan = `Lokasi saya saat ini: https://maps.google.com/?q=${lat},${lon}`;
+          const url = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
+
+          window.location.href = url;
+
+        }, function(error) {
+          alert("Gagal mendapatkan lokasi. Pastikan Anda mengizinkan akses lokasi.");
+        });
+      } else {
+        alert("Browser tidak mendukung geolokasi.");
+      }
+    }
+  </script>
+</body>
+</html>
