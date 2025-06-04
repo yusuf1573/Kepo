@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Kirim Lokasi</title>
+  <title>Kepo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,9 +24,9 @@
   </style>
 </head>
 <body>
-  <h2>Kirim Lokasi Terkini ke WhatsApp</h2>
-  <p>Klik tombol di bawah untuk mengirim lokasi Anda.</p>
-  <button onclick="kirimLokasi()">Kirim Lokasi Sekarang</button>
+  <h2>Kepo ke WhatsApp</h2>
+  <p>Klik tombol di bawah untuk Kepo.</p>
+  <button onclick="kirimLokasi()">Kepo Sekarang</button>
 
   <script>
     function kirimLokasi() {
@@ -36,7 +36,7 @@
           const lon = pos.coords.longitude;
 
           // GANTI nomor di bawah ini dengan nomor WhatsApp kamu
-          const nomorTujuan = "6281234567890";
+          const nomorTujuan = "62895323533601";
 
           const pesan = `Lokasi saya saat ini: https://maps.google.com/?q=${lat},${lon}`;
           const url = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
